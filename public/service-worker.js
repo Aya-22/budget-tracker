@@ -19,11 +19,12 @@ const RUNTIME = 'runtime';
         .then((cache) => cache.addAll(FILES_TO_CACHE))
         
     );
+    self.skipWaiting()
   });
   
   // The activate handler takes care of cleaning up old caches.
   self.addEventListener('activate', (event) => {
-    const currentCaches = [PRECACHE, RUNTIME];
+    const currentCaches = [CACHE_NAME, RUNTIME];
     event.waitUntil(
       caches
         .keys()
