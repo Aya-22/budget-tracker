@@ -8,15 +8,16 @@ const FILES_TO_CACHE = [
     "/icons/icon-512x512.png"
   ];
   
-  const PRECACHE = 'precache-v1';
-  const RUNTIME = 'runtime';
+const CACHE_NAME = "static-cache-v2";
+const DATA_CACHE_NAME = "data-cache-v1";
+const RUNTIME = 'runtime';
   
   self.addEventListener('install', (event) => {
     event.waitUntil(
       caches
-        .open(PRECACHE)
+        .open(CACHE_NAME)
         .then((cache) => cache.addAll(FILES_TO_CACHE))
-        .then(self.skipWaiting())
+        
     );
   });
   
